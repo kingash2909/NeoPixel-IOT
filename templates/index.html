@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Automation Control</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f8f9fa;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            overflow: hidden; /* Prevents horizontal scrollbar */
+        }
+
+        h1 {
+            color: #343a40;
+            text-align: center;
+            margin-bottom: 20px;
+            width: 100%;
+        }
+
+        h2 {
+            color: #343a40;
+            text-align: center;
+            margin-bottom: 20px;
+            width: 100%;
+        }
+
+        form {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            position: relative;
+        }
+
+        button {
+            margin: 10px;
+            padding: 15px;
+            font-size: 18px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            position: relative;
+            width: calc(50% - 20px); /* Adjusted width */
+            box-sizing: border-box;
+        }
+
+        button:hover {
+            background-color: #007bff;
+            color: #fff;
+            transform: scale(1.05);
+        }
+
+        button[type="submit"] {
+            background-color: #28a745;
+            color: #fff;
+        }
+
+        button[type="submit"]:hover {
+            background-color: #218838;
+        }
+
+        button[value="off"] {
+            background-color: #dc3545;
+            color: #fff;
+        }
+
+        button[value="off"]:hover {
+            background-color: #c82333;
+        }
+
+        .fa-power-off {
+            margin-right: 5px;
+        }
+
+        .bulb {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            position: absolute;
+            top: -30px;
+            left: 50%;
+            transform: translateX(-50%);
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+        }
+
+        .vl {
+            border-left: 2px solid rgb(255, 243, 243);
+            height: 550px; 
+            width: 50%;
+            float: left;
+            margin-left: 15px; 
+        }
+    </style>
+</head>
+<body style="background-color: #212529;">
+    <div style="width: 100%; height: 100%;">
+        <h1 style="color: #f8f9fa;">Home Automation Control</h1><br><br>
+
+    <div class="mt-4 ml-5" style="float: left; width: 47%; height: -80%;">
+        <h2 style="color: #f8f9fa;">Neopixel Control</h2><br><br>
+        <form action="/control" method="post">
+            <div class="bulb" id="bulb_red"></div>  
+            <button type="submit" name="color" value="red" style="background-color: #dc3545; color: #fff;"><i class="fas fa-circle"></i> Red</button>
+
+            <div class="bulb" id="bulb_green"></div>
+            <button type="submit" name="color" value="green" style="background-color: #28a745; color: #fff;"><i class="fas fa-circle"></i> Green</button>
+
+            <div class="bulb" id="bulb_blue"></div>
+            <button type="submit" name="color" value="blue" style="background-color: #007bff; color: #fff;"><i class="fas fa-circle"></i> Blue</button>
+
+            <div class="bulb" id="bulb_yellow"></div>
+            <button type="submit" name="color" value="yellow" style="background-color: #ffc107; color: #ffffff;"><i class="fas fa-circle"></i> Yellow</button>
+
+            <div class="bulb" id="bulb_purple"></div>
+            <button type="submit" name="color" value="purple" style="background-color: #6f42c1; color: #fff;"><i class="fas fa-circle"></i> Purple</button>
+
+            <div class="bulb" id="bulb_cyan"></div>
+            <button type="submit" name="color" value="cyan" style="background-color: #17a2b8; color: #fff;"><i class="fas fa-circle"></i> Cyan</button>
+
+            <div class="bulb" id="bulb_off"></div>
+            <button type="submit" name="color" value="off" style="background-color: #6c757d; color: #fff;"><i class="fas fa-power-off"></i> Turn Off</button>
+        </form>
+    </div>
+    <div class="vl"></div>
+
+    <div style="float: right; width: 47%;">
+
+    </div>
+</div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const bulbs = document.querySelectorAll('.bulb');
+
+            document.querySelectorAll('button[name="color"]').forEach(button => {
+                button.addEventListener('click', function () {
+                    const color = this.value;
+                    bulbs.forEach(bulb => bulb.style.backgroundColor = color);
+                });
+            });
+
+            document.querySelector('button[value="off"]').addEventListener('click', function () {
+                bulbs.forEach(bulb => bulb.style.backgroundColor = 'transparent');
+            });
+        });
+    </script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Automation Control</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f8f9fa;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        h1 {
+            color: #343a40;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        form {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        button {
+            margin: 10px;
+            padding: 15px;
+            font-size: 18px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+
+        button:hover {
+            background-color: #007bff;
+            color: #fff;
+            transform: scale(1.05);
+        }
+
+        button[type="submit"] {
+            background-color: #28a745;
+            color: #fff;
+        }
+
+        button[type="submit"]:hover {
+            background-color: #218838;
+        }
+
+        button[value="off"] {
+            background-color: #dc3545;
+            color: #fff;
+        }
+
+        button[value="off"]:hover {
+            background-color: #c82333;
+        }
+
+        .fa-power-off {
+            margin-right: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <h1>Neopixel Control</h1>
+        <form action="/control" method="post">
+            <button type="submit" name="color" value="red" style="background-color: #dc3545; color: #fff;"><i class="fas fa-circle"></i> Red</button>
+            <button type="submit" name="color" value="green" style="background-color: #28a745; color: #fff;"><i class="fas fa-circle"></i> Green</button>
+            <button type="submit" name="color" value="blue" style="background-color: #007bff; color: #fff;"><i class="fas fa-circle"></i> Blue</button>
+            <button type="submit" name="color" value="yellow" style="background-color: #ffc107; color: #212529;"><i class="fas fa-circle"></i> Yellow</button>
+            <button type="submit" name="color" value="purple" style="background-color: #6f42c1; color: #fff;"><i class="fas fa-circle"></i> Purple</button>
+            <button type="submit" name="color" value="cyan" style="background-color: #17a2b8; color: #fff;"><i class="fas fa-circle"></i> Cyan</button>
+            <button type="submit" name="color" value="off" style="background-color: #6c757d; color: #fff;"><i class="fas fa-power-off"></i> Turn Off</button>
+        </form>
+    </div>
+</body>
+</html> -->
